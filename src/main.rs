@@ -2,7 +2,7 @@ use std::net::SocketAddr;
 use std::sync::Arc;
 use axum::Router;
 use solana_sdk::signer::Signer;
-use sqlx::sqlite::{SqliteConnectOptions, SqlitePoolOptions};
+use sqlx::postgres::PgPoolOptions;
 use tower_http::cors::CorsLayer;
 use tower_http::trace::TraceLayer;
 
@@ -74,22 +74,10 @@ async fn main() -> anyhow::Result<()> {
 
     // ─── Server startup ───
 
-    // Ensure data directory exists for SQLite
-    let db_path = config.database_url
-        .trim_start_matches("sqlite://")
-        .trim_start_matches("sqlite:");
-    if let Some(parent) = std::path::Path::new(db_path).parent() {
-        if !parent.as_os_str().is_empty() {
-            std::fs::create_dir_all(parent)?;
-        }
-    }
-
-    // Initialize database (create file if missing)
-    let connect_options: SqliteConnectOptions = config.database_url.parse::<SqliteConnectOptions>()?
-        .create_if_missing(true);
-    let db = SqlitePoolOptions::new()
+    // Initialize PostgreSQL database
+    let db = PgPoolOptions::new()
         .max_connections(5)
-        .connect_with(connect_options)
+        .connect(&config.database_url)
         .await?;
     sqlx::migrate!("./migrations").run(&db).await?;
 
@@ -125,7 +113,7 @@ async fn main() -> anyhow::Result<()> {
             interval.tick().await;
             let _ = sqlx::query(
                 "UPDATE challenges SET status = 'expired'
-                 WHERE status = 'pending' AND expires_at < datetime('now')",
+                 WHERE status = 'pending' AND expires_at < NOW()",
             )
             .execute(&cleanup_db)
             .await;

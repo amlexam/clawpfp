@@ -1,12 +1,11 @@
-use sqlx::SqlitePool;
+use sqlx::PgPool;
 use crate::models::tree::TreeRow;
 
-pub async fn get_active_tree(pool: &SqlitePool) -> Result<Option<TreeRow>, sqlx::Error> {
+pub async fn get_active_tree(pool: &PgPool) -> Result<Option<TreeRow>, sqlx::Error> {
     let row = sqlx::query_as::<_, (i64, String, i64, i64, i64, i64, i64, bool)>(
         "SELECT id, address, max_depth, max_buffer_size, canopy_depth, max_capacity, current_leaf_index, is_active
          FROM merkle_trees WHERE is_active = TRUE LIMIT 1"
     )
-    .bind(true)
     .fetch_optional(pool)
     .await?;
 
@@ -25,7 +24,7 @@ pub async fn get_active_tree(pool: &SqlitePool) -> Result<Option<TreeRow>, sqlx:
 }
 
 pub async fn insert_tree(
-    pool: &SqlitePool,
+    pool: &PgPool,
     address: &str,
     max_depth: u32,
     max_buffer_size: u32,
@@ -36,7 +35,7 @@ pub async fn insert_tree(
 ) -> Result<(), sqlx::Error> {
     sqlx::query(
         "INSERT INTO merkle_trees (address, max_depth, max_buffer_size, canopy_depth, max_capacity, collection_mint, creation_tx)
-         VALUES (?, ?, ?, ?, ?, ?, ?)"
+         VALUES ($1, $2, $3, $4, $5, $6, $7)"
     )
     .bind(address)
     .bind(max_depth as i64)
@@ -50,23 +49,23 @@ pub async fn insert_tree(
     Ok(())
 }
 
-pub async fn deactivate_tree(pool: &SqlitePool, address: &str) -> Result<(), sqlx::Error> {
-    sqlx::query("UPDATE merkle_trees SET is_active = FALSE WHERE address = ?")
+pub async fn deactivate_tree(pool: &PgPool, address: &str) -> Result<(), sqlx::Error> {
+    sqlx::query("UPDATE merkle_trees SET is_active = FALSE WHERE address = $1")
         .bind(address)
         .execute(pool)
         .await?;
     Ok(())
 }
 
-pub async fn increment_tree_leaf_index(pool: &SqlitePool, address: &str) -> Result<(), sqlx::Error> {
-    sqlx::query("UPDATE merkle_trees SET current_leaf_index = current_leaf_index + 1 WHERE address = ?")
+pub async fn increment_tree_leaf_index(pool: &PgPool, address: &str) -> Result<(), sqlx::Error> {
+    sqlx::query("UPDATE merkle_trees SET current_leaf_index = current_leaf_index + 1 WHERE address = $1")
         .bind(address)
         .execute(pool)
         .await?;
     Ok(())
 }
 
-pub async fn get_tree_capacity_remaining(pool: &SqlitePool) -> Result<i64, sqlx::Error> {
+pub async fn get_tree_capacity_remaining(pool: &PgPool) -> Result<i64, sqlx::Error> {
     let row: Option<(i64, i64)> = sqlx::query_as(
         "SELECT max_capacity, current_leaf_index FROM merkle_trees WHERE is_active = TRUE LIMIT 1"
     )

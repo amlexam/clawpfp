@@ -1,28 +1,27 @@
-use sqlx::SqlitePool;
+use sqlx::PgPool;
 use crate::models::challenge::{Challenge, ChallengeType};
 
-pub async fn insert_challenge(pool: &SqlitePool, challenge: &Challenge) -> Result<(), sqlx::Error> {
+pub async fn insert_challenge(pool: &PgPool, challenge: &Challenge) -> Result<(), sqlx::Error> {
     let challenge_type = challenge.challenge_type.to_string();
-    let expires_at = challenge.expires_at.to_rfc3339();
 
     sqlx::query(
         "INSERT INTO challenges (id, challenge_type, question, answer, status, expires_at)
-         VALUES (?, ?, ?, ?, 'pending', ?)"
+         VALUES ($1, $2, $3, $4, 'pending', $5)"
     )
     .bind(&challenge.id)
     .bind(&challenge_type)
     .bind(&challenge.question)
     .bind(&challenge.answer)
-    .bind(&expires_at)
+    .bind(&challenge.expires_at)
     .execute(pool)
     .await?;
 
     Ok(())
 }
 
-pub async fn get_challenge(pool: &SqlitePool, id: &str) -> Result<Option<Challenge>, sqlx::Error> {
-    let row = sqlx::query_as::<_, (String, String, String, String, String, String)>(
-        "SELECT id, challenge_type, question, answer, status, expires_at FROM challenges WHERE id = ?"
+pub async fn get_challenge(pool: &PgPool, id: &str) -> Result<Option<Challenge>, sqlx::Error> {
+    let row = sqlx::query_as::<_, (String, String, String, String, String, chrono::DateTime<chrono::Utc>)>(
+        "SELECT id, challenge_type, question, answer, status, expires_at FROM challenges WHERE id = $1"
     )
     .bind(id)
     .fetch_optional(pool)
@@ -35,16 +34,14 @@ pub async fn get_challenge(pool: &SqlitePool, id: &str) -> Result<Option<Challen
             question,
             answer,
             status,
-            expires_at: chrono::DateTime::parse_from_rfc3339(&expires_at)
-                .map(|dt| dt.with_timezone(&chrono::Utc))
-                .unwrap_or_else(|_| chrono::Utc::now()),
+            expires_at,
         }
     }))
 }
 
-pub async fn mark_challenge_consumed(pool: &SqlitePool, id: &str) -> Result<(), sqlx::Error> {
+pub async fn mark_challenge_consumed(pool: &PgPool, id: &str) -> Result<(), sqlx::Error> {
     sqlx::query(
-        "UPDATE challenges SET status = 'consumed', consumed_at = datetime('now') WHERE id = ?"
+        "UPDATE challenges SET status = 'consumed', consumed_at = NOW() WHERE id = $1"
     )
     .bind(id)
     .execute(pool)
@@ -52,8 +49,8 @@ pub async fn mark_challenge_consumed(pool: &SqlitePool, id: &str) -> Result<(), 
     Ok(())
 }
 
-pub async fn expire_challenge(pool: &SqlitePool, id: &str) -> Result<(), sqlx::Error> {
-    sqlx::query("UPDATE challenges SET status = 'expired' WHERE id = ?")
+pub async fn expire_challenge(pool: &PgPool, id: &str) -> Result<(), sqlx::Error> {
+    sqlx::query("UPDATE challenges SET status = 'expired' WHERE id = $1")
         .bind(id)
         .execute(pool)
         .await?;

@@ -5,7 +5,7 @@ use solana_sdk::signer::keypair::Keypair;
 use solana_sdk::signer::Signer;
 use solana_sdk::system_instruction;
 use solana_sdk::transaction::Transaction;
-use sqlx::SqlitePool;
+use sqlx::PgPool;
 
 use crate::config::Config;
 use crate::db;
@@ -13,7 +13,7 @@ use crate::models::tree::TreeInfo;
 use crate::services::bubblegum;
 
 pub struct TreeManager {
-    pub db: SqlitePool,
+    pub db: PgPool,
     pub rpc_client: Arc<RpcClient>,
     pub payer: Arc<Keypair>,
     pub config: Config,
@@ -21,7 +21,7 @@ pub struct TreeManager {
 
 impl TreeManager {
     pub fn new(
-        db: SqlitePool,
+        db: PgPool,
         rpc_client: Arc<RpcClient>,
         payer: Arc<Keypair>,
         config: Config,

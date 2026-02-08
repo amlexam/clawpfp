@@ -9,6 +9,7 @@ A Rust/Axum backend for agent-gated compressed NFT (cNFT) minting on Solana via 
 - **Solana keypair** — JSON byte array format (same as `solana-keygen new`)
 - **Funded wallet** — ~1 SOL on devnet for tree creation + tx fees
 - **RPC endpoint** — any Solana RPC; [Helius](https://helius.dev) recommended for DAS support
+- **Supabase project** — free tier works fine (see [Database Setup](#database-setup))
 - **Irys account** — funded with SOL for metadata uploads (see [Irys Setup](#irys-setup))
 
 ## Quick start
@@ -20,7 +21,7 @@ cargo build
 
 # 2. Configure
 cp .env.example .env
-# Edit .env — set PAYER_KEYPAIR and SOLANA_RPC_URL at minimum
+# Edit .env — set PAYER_KEYPAIR, SOLANA_RPC_URL, and DATABASE_URL at minimum
 
 # 3. Create collection NFT (one-time setup)
 cargo run -- setup
@@ -54,7 +55,7 @@ All config is via environment variables (`.env` file loaded automatically):
 | `MERKLE_TREE_MAX_BUFFER_SIZE` | `64` | Concurrent update buffer |
 | `MERKLE_TREE_CANOPY_DEPTH` | `10` | On-chain proof cache depth |
 | `PORT` | `3000` | HTTP port |
-| `DATABASE_URL` | `sqlite://data/cnft_mint.db` | SQLite database path |
+| `DATABASE_URL` | — | PostgreSQL connection string (Supabase) |
 | `CHALLENGE_EXPIRY_SECONDS` | `300` | Challenge TTL (5 min) |
 
 ## API endpoints
@@ -191,7 +192,7 @@ Agent                          Server                          Solana
 - **Metadata storage**: Arweave (permanent) via Irys bundler
 - **Cost per mint**: ~0.000005 SOL (tx fee) + ~0.00001 SOL (Irys upload)
 - **Tree rotation**: automatic when a tree fills up
-- **Database**: SQLite (challenges, mints, tree tracking)
+- **Database**: PostgreSQL via Supabase (challenges, mints, tree tracking)
 - **Challenge expiry**: background task cleans up every 60s
 
 ## Project structure
@@ -226,6 +227,32 @@ src/
 └── bin/
     └── test_endpoints.rs    # E2E test runner
 ```
+
+## Database Setup
+
+The server uses **PostgreSQL** (via [Supabase](https://supabase.com)) to track challenges, mints, and Merkle trees. Tables are auto-created on first startup via migrations.
+
+### 1. Create a Supabase project
+
+1. Go to [supabase.com](https://supabase.com) and create a free project
+2. Go to **Project Settings → Database → Connection string** and select **URI**
+3. Copy the connection string — it looks like:
+   ```
+   postgresql://postgres.[project-ref]:[password]@aws-0-[region].pooler.supabase.com:6543/postgres
+   ```
+4. Paste it into your `.env` as `DATABASE_URL`
+
+### 2. Tables are auto-created
+
+The server runs migrations automatically on startup. Three tables are created:
+
+| Table | Purpose |
+|-------|---------|
+| `challenges` | Tracks challenge-response flow, prevents replay attacks |
+| `mints` | Audit trail of every minted cNFT (asset ID, wallet, tx signature) |
+| `merkle_trees` | Tracks active trees and leaf indices for automatic tree rotation |
+
+You can also run the SQL manually in Supabase SQL Editor — the migration is at `migrations/001_initial.sql`.
 
 ## Irys Setup
 

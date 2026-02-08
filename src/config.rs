@@ -68,7 +68,7 @@ impl Config {
                 .unwrap_or_else(|_| "3000".to_string())
                 .parse()?,
             database_url: std::env::var("DATABASE_URL")
-                .unwrap_or_else(|_| "sqlite://data/cnft_mint.db".to_string()),
+                .expect("DATABASE_URL must be set (e.g. postgresql://user:pass@host:5432/dbname)"),
             rate_limit_per_second: std::env::var("RATE_LIMIT_PER_SECOND")
                 .unwrap_or_else(|_| "2".to_string())
                 .parse()?,

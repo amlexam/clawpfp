@@ -1,7 +1,7 @@
-use sqlx::SqlitePool;
+use sqlx::PgPool;
 
 pub async fn insert_mint(
-    pool: &SqlitePool,
+    pool: &PgPool,
     asset_id: &str,
     tree_address: &str,
     leaf_index: u64,
@@ -13,7 +13,7 @@ pub async fn insert_mint(
 ) -> Result<(), sqlx::Error> {
     sqlx::query(
         "INSERT INTO mints (asset_id, tree_address, leaf_index, recipient_wallet, metadata_uri, metadata_name, tx_signature, challenge_id)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8)"
     )
     .bind(asset_id)
     .bind(tree_address)
@@ -29,13 +29,13 @@ pub async fn insert_mint(
 }
 
 pub async fn get_mint_by_tx(
-    pool: &SqlitePool,
+    pool: &PgPool,
     tx_signature: &str,
 ) -> Result<Option<(String, String, String, String, String)>, sqlx::Error> {
     // Returns (tx_signature, status, asset_id, recipient_wallet, created_at)
     let row = sqlx::query_as::<_, (String, String, String, String, String)>(
-        "SELECT tx_signature, status, asset_id, recipient_wallet, created_at
-         FROM mints WHERE tx_signature = ?"
+        "SELECT tx_signature, status, asset_id, recipient_wallet, created_at::text
+         FROM mints WHERE tx_signature = $1"
     )
     .bind(tx_signature)
     .fetch_optional(pool)
@@ -43,7 +43,7 @@ pub async fn get_mint_by_tx(
     Ok(row)
 }
 
-pub async fn get_total_minted(pool: &SqlitePool) -> Result<i64, sqlx::Error> {
+pub async fn get_total_minted(pool: &PgPool) -> Result<i64, sqlx::Error> {
     let (count,): (i64,) = sqlx::query_as("SELECT COUNT(*) FROM mints WHERE status = 'confirmed'")
         .fetch_one(pool)
         .await?;
