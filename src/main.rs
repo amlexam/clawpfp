@@ -83,9 +83,12 @@ async fn main() -> anyhow::Result<()> {
     // ─── Server startup ───
 
     // Initialize PostgreSQL database
+    // Disable prepared statement caching for PgBouncer (Supabase transaction pooler) compat
+    let db_opts: sqlx::postgres::PgConnectOptions = config.database_url.parse::<sqlx::postgres::PgConnectOptions>()?
+        .statement_cache_capacity(0);
     let db = PgPoolOptions::new()
         .max_connections(5)
-        .connect(&config.database_url)
+        .connect_with(db_opts)
         .await?;
     sqlx::migrate!("./migrations").run(&db).await?;
 
