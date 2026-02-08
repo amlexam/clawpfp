@@ -101,12 +101,15 @@ async fn main() -> anyhow::Result<()> {
         config.clone(),
     );
 
+    let http_client = reqwest::Client::new();
+
     let app_state = Arc::new(state::AppState {
         config: config.clone(),
         rpc_client,
         payer,
         db: db.clone(),
         tree_manager,
+        http_client,
     });
 
     // Build router

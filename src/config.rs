@@ -13,6 +13,9 @@ pub struct Config {
     pub collection_symbol: String,
     pub base_metadata_uri: String,
     pub seller_fee_basis_points: u16,
+    pub collection_description: String,
+    pub collection_image_url: String,
+    pub irys_node_url: String,
     pub host: String,
     pub port: u16,
     pub database_url: String,
@@ -54,6 +57,12 @@ impl Config {
             seller_fee_basis_points: std::env::var("SELLER_FEE_BASIS_POINTS")
                 .unwrap_or_else(|_| "500".to_string())
                 .parse()?,
+            collection_description: std::env::var("COLLECTION_DESCRIPTION")
+                .unwrap_or_else(|_| "A compressed NFT minted by an AI agent.".to_string()),
+            collection_image_url: std::env::var("COLLECTION_IMAGE_URL")
+                .unwrap_or_else(|_| "https://placehold.co/500x500/6C5CE7/FFFFFF/png?text=cNFT".to_string()),
+            irys_node_url: std::env::var("IRYS_NODE_URL")
+                .unwrap_or_else(|_| "https://devnet.irys.xyz".to_string()),
             host: std::env::var("HOST").unwrap_or_else(|_| "0.0.0.0".to_string()),
             port: std::env::var("PORT")
                 .unwrap_or_else(|_| "3000".to_string())

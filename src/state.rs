@@ -11,4 +11,5 @@ pub struct AppState {
     pub payer: Arc<Keypair>,
     pub db: SqlitePool,
     pub tree_manager: TreeManager,
+    pub http_client: reqwest::Client,
 }

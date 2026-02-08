@@ -1,0 +1,17 @@
+{
+  "name": "MyCNFTCollection #0",
+  "symbol": "CNFT",
+  "description": "A compressed NFT minted by an AI agent via challenge-response.",
+  "image": "https://placehold.co/500x500/6C5CE7/FFFFFF/png?text=cNFT+%230",
+  "external_url": "",
+  "attributes": [
+    { "trait_type": "Mint Method", "value": "Agent Challenge" },
+    { "trait_type": "Network", "value": "Devnet" }
+  ],
+  "properties": {
+    "files": [
+      { "uri": "https://placehold.co/500x500/6C5CE7/FFFFFF/png?text=cNFT+%230", "type": "image/png" }
+    ],
+    "category": "image"
+  }
+}

@@ -40,9 +40,10 @@ dotenvy = "0.15"
 thiserror = "2"
 anyhow = "1"
 
-# ─── HTTP Client (for test binary) ───
+# ─── HTTP Client ───
 reqwest = { version = "0.11", features = ["json", "rustls-tls"], default-features = false }
 regex = "1"
+sha2 = "0.10"
 
 # ─── Logging ───
 tracing = "0.1"
