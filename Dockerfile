@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/
 
 COPY --from=builder /app/target/release/cnft-mint-server /usr/local/bin/cnft-mint-server
 COPY migrations/ /app/migrations/
+COPY SKILL.md /app/SKILL.md
 
 WORKDIR /app
 

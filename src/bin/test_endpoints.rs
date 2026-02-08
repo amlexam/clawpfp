@@ -6,7 +6,9 @@ use regex::Regex;
 use serde::{Deserialize, Serialize};
 use std::time::Instant;
 
-const BASE_URL: &str = "http://localhost:3000";
+fn base_url() -> String {
+    std::env::var("TEST_BASE_URL").unwrap_or_else(|_| "http://localhost:3000".to_string())
+}
 
 // The wallet that will receive the cNFT (same as payer for testing)
 const TEST_WALLET: &str = "8EwoWotLUEipf2rAtje738n6NX3LkhGKbtBCx9Z4RBDb";
@@ -109,13 +111,8 @@ fn solve_challenge(question: &str) -> Option<String> {
 
     // Word math: "If A=1, B=2, ..., Z=26, what is the sum of letter values in 'SOLANA'?"
     if question.contains("letter values") {
-        let word = Regex::new(r"'([A-Z]+)'")
-            .ok()?
-            .captures(question)?;
-        let sum: u32 = word[1]
-            .chars()
-            .map(|c| (c as u32) - ('A' as u32) + 1)
-            .sum();
+        let word = Regex::new(r"'([A-Z]+)'").ok()?.captures(question)?;
+        let sum: u32 = word[1].chars().map(|c| (c as u32) - ('A' as u32) + 1).sum();
         return Some(sum.to_string());
     }
 
@@ -170,15 +167,16 @@ async fn main() -> anyhow::Result<()> {
     let mut passed = 0u32;
     let mut failed = 0u32;
     let total_start = Instant::now();
+    let base = base_url();
 
     println!("\n  cnft-mint-server End-to-End Test");
-    println!("  Server: {}", BASE_URL);
+    println!("  Server: {}", base);
     println!("  Wallet: {}", TEST_WALLET);
 
     // ─── Step 1: Health check ───
     print_step(1, "GET /health");
     let t = Instant::now();
-    let resp = client.get(format!("{}/health", BASE_URL)).send().await?;
+    let resp = client.get(format!("{}/health", base)).send().await?;
     let status = resp.status();
     let health: HealthResponse = resp.json().await?;
     println!("  Status code : {}", status);
@@ -199,7 +197,7 @@ async fn main() -> anyhow::Result<()> {
     // ─── Step 2: Get challenge ───
     print_step(2, "GET /challenge");
     let t = Instant::now();
-    let resp = client.get(format!("{}/challenge", BASE_URL)).send().await?;
+    let resp = client.get(format!("{}/challenge", base)).send().await?;
     let status = resp.status();
     let challenge: ChallengeResponse = resp.json().await?;
     println!("  Status code : {}", status);
@@ -245,7 +243,7 @@ async fn main() -> anyhow::Result<()> {
         wallet_address: TEST_WALLET.to_string(),
     };
     let resp = client
-        .post(format!("{}/mint", BASE_URL))
+        .post(format!("{}/mint", base))
         .json(&bad_req)
         .send()
         .await?;
@@ -273,7 +271,7 @@ async fn main() -> anyhow::Result<()> {
         wallet_address: TEST_WALLET.to_string(),
     };
     let resp = client
-        .post(format!("{}/mint", BASE_URL))
+        .post(format!("{}/mint", base))
         .json(&mint_req)
         .send()
         .await?;
@@ -286,8 +284,14 @@ async fn main() -> anyhow::Result<()> {
     if status == 200 {
         let mint: MintResponse = serde_json::from_str(&body)?;
         println!("  Success     : {}", mint.success);
-        println!("  Tx Signature: {}", mint.tx_signature.as_deref().unwrap_or("n/a"));
-        println!("  Asset ID    : {}", mint.asset_id.as_deref().unwrap_or("n/a"));
+        println!(
+            "  Tx Signature: {}",
+            mint.tx_signature.as_deref().unwrap_or("n/a")
+        );
+        println!(
+            "  Asset ID    : {}",
+            mint.asset_id.as_deref().unwrap_or("n/a")
+        );
         println!("  Mint Index  : {}", mint.mint_index.unwrap_or(0));
         println!("  Message     : {}", mint.message.as_deref().unwrap_or(""));
         println!("  Result      : PASS");
@@ -305,16 +309,25 @@ async fn main() -> anyhow::Result<()> {
         print_step(6, "GET /status/:tx_signature");
         let t = Instant::now();
         let resp = client
-            .get(format!("{}/status/{}", BASE_URL, sig))
+            .get(format!("{}/status/{}", base, sig))
             .send()
             .await?;
         let status = resp.status();
         let sr: StatusResponse = resp.json().await?;
         println!("  Status code : {}", status);
         println!("  Tx status   : {}", sr.status);
-        println!("  Asset ID    : {}", sr.asset_id.as_deref().unwrap_or("n/a"));
-        println!("  Recipient   : {}", sr.recipient.as_deref().unwrap_or("n/a"));
-        println!("  Confirmed   : {}", sr.confirmed_at.as_deref().unwrap_or("n/a"));
+        println!(
+            "  Asset ID    : {}",
+            sr.asset_id.as_deref().unwrap_or("n/a")
+        );
+        println!(
+            "  Recipient   : {}",
+            sr.recipient.as_deref().unwrap_or("n/a")
+        );
+        println!(
+            "  Confirmed   : {}",
+            sr.confirmed_at.as_deref().unwrap_or("n/a")
+        );
         println!("  Latency     : {:?}", t.elapsed());
         if status == 200 && sr.status == "confirmed" {
             println!("  Result      : PASS");
@@ -326,7 +339,10 @@ async fn main() -> anyhow::Result<()> {
     }
 
     // ─── Step 7: Replay protection ───
-    print_step(if tx_signature.is_some() { 7 } else { 6 }, "POST /mint (replay same challenge)");
+    print_step(
+        if tx_signature.is_some() { 7 } else { 6 },
+        "POST /mint (replay same challenge)",
+    );
     let t = Instant::now();
     let replay_req = MintRequest {
         challenge_id: challenge.challenge_id.clone(),
@@ -334,7 +350,7 @@ async fn main() -> anyhow::Result<()> {
         wallet_address: TEST_WALLET.to_string(),
     };
     let resp = client
-        .post(format!("{}/mint", BASE_URL))
+        .post(format!("{}/mint", base))
         .json(&replay_req)
         .send()
         .await?;
@@ -355,7 +371,7 @@ async fn main() -> anyhow::Result<()> {
     // ─── Step 8: Health after mint ───
     let step_num = if tx_signature.is_some() { 8 } else { 7 };
     print_step(step_num, "GET /health (after mint)");
-    let resp = client.get(format!("{}/health", BASE_URL)).send().await?;
+    let resp = client.get(format!("{}/health", base)).send().await?;
     let health: HealthResponse = resp.json().await?;
     println!("  Active tree : {}", health.active_tree);
     println!("  Minted      : {}", health.total_minted);
@@ -374,7 +390,12 @@ async fn main() -> anyhow::Result<()> {
 
 fn print_summary(passed: u32, failed: u32, elapsed: std::time::Duration) {
     println!("\n{}", "=".repeat(60));
-    println!("  RESULTS: {} passed, {} failed  ({:.1}s total)", passed, failed, elapsed.as_secs_f64());
+    println!(
+        "  RESULTS: {} passed, {} failed  ({:.1}s total)",
+        passed,
+        failed,
+        elapsed.as_secs_f64()
+    );
     println!("{}\n", "=".repeat(60));
     if failed > 0 {
         std::process::exit(1);

@@ -2,7 +2,7 @@
 name: cnft-mint
 version: 1.0.0
 description: Mint a compressed NFT (cNFT) on Solana by solving a math/logic challenge. Server handles all signing — just provide your wallet address.
-metadata: {"category":"nft","chain":"solana","compression":"bubblegum","requires":{"challenge_response":true,"solana_wallet":true,"min_sol":"0"},"cost_per_mint":"~0.000015 SOL (paid by server)"}
+metadata: {"category":"nft","api_base":"https://clawso.up.railway.app","chain":"solana","compression":"bubblegum","requires":{"challenge_response":true,"solana_wallet":true,"min_sol":"0"},"cost_per_mint":"~0.000015 SOL (paid by server)"}
 ---
 
 # cNFT Mint Skill
@@ -28,7 +28,7 @@ The mint flow has two steps: **get challenge → solve & mint**.
 ### Step 1: Request a challenge
 
 ```bash
-curl $BASE_URL/challenge
+curl https://clawso.up.railway.app/challenge
 ```
 
 Response:
@@ -55,7 +55,7 @@ Challenge types:
 Evaluate the challenge and send the answer with your wallet address:
 
 ```bash
-curl -X POST $BASE_URL/mint \
+curl -X POST https://clawso.up.railway.app/mint \
   -H "Content-Type: application/json" \
   -d '{
     "challenge_id": "550e8400-e29b-41d4-a716-446655440000",
@@ -82,7 +82,7 @@ Your cNFT is now in your wallet. Each mint gets a unique DiceBear pixel-art avat
 ```python
 import requests
 
-BASE = "http://localhost:3000"  # Replace with your server URL
+BASE = "https://clawso.up.railway.app"
 WALLET = "YOUR_SOLANA_PUBLIC_KEY"
 
 # 1. Get challenge
