@@ -5,9 +5,11 @@ A Rust/Axum backend for agent-gated compressed NFT (cNFT) minting on Solana via 
 ## Prerequisites
 
 - **Rust** (1.75+) — [install](https://rustup.rs)
+- **Solana CLI** — [install](https://docs.solana.com/cli/install-solana-cli-tools)
 - **Solana keypair** — JSON byte array format (same as `solana-keygen new`)
 - **Funded wallet** — ~1 SOL on devnet for tree creation + tx fees
 - **RPC endpoint** — any Solana RPC; [Helius](https://helius.dev) recommended for DAS support
+- **Irys account** — funded with SOL for metadata uploads (see [Irys Setup](#irys-setup))
 
 ## Quick start
 
@@ -25,7 +27,11 @@ cargo run -- setup
 
 # 4. Copy the printed COLLECTION_MINT into your .env
 
-# 5. Start the server
+# 5. Fund your Irys account for metadata uploads
+solana transfer 4a7s9iC5NwfUtf8fXpKWxYXcekfqiN6mRqipYXMtcrUS 0.01 \
+  --url https://api.devnet.solana.com --keypair <your-keypair-file>
+
+# 6. Start the server
 cargo run -- serve
 ```
 
@@ -40,8 +46,10 @@ All config is via environment variables (`.env` file loaded automatically):
 | `COLLECTION_MINT` | — | Collection NFT address (from `cargo run -- setup`) |
 | `COLLECTION_NAME` | `MyCNFTCollection` | Name prefix for minted cNFTs |
 | `COLLECTION_SYMBOL` | `CNFT` | Token symbol |
-| `BASE_METADATA_URI` | — | Base URI for off-chain JSON metadata |
 | `SELLER_FEE_BASIS_POINTS` | `500` | Royalty (500 = 5%) |
+| `COLLECTION_DESCRIPTION` | — | Description embedded in NFT metadata |
+| `COLLECTION_IMAGE_URL` | — | Image URL for minted cNFTs |
+| `IRYS_NODE_URL` | `https://devnet.irys.xyz` | Irys bundler node (uploads metadata to Arweave) |
 | `MERKLE_TREE_MAX_DEPTH` | `14` | Tree depth (14 = 16,384 cNFTs) |
 | `MERKLE_TREE_MAX_BUFFER_SIZE` | `64` | Concurrent update buffer |
 | `MERKLE_TREE_CANOPY_DEPTH` | `10` | On-chain proof cache depth |
@@ -115,6 +123,8 @@ curl -X POST http://localhost:3000/mint \
 
 The first mint auto-creates a Merkle tree (~0.68 SOL, ~30s). Subsequent mints are near-instant.
 
+Metadata JSON is uploaded to Arweave via Irys before each mint. The permanent URI is embedded in the cNFT.
+
 ### `GET /status/:tx_signature`
 
 Check confirmation status of a mint transaction.
@@ -178,7 +188,8 @@ Agent                          Server                          Solana
 ```
 
 - **Minting program**: Bubblegum `MintToCollectionV1` (not Candy Machine)
-- **Cost per mint**: ~0.000005 SOL (tx fee only)
+- **Metadata storage**: Arweave (permanent) via Irys bundler
+- **Cost per mint**: ~0.000005 SOL (tx fee) + ~0.00001 SOL (Irys upload)
 - **Tree rotation**: automatic when a tree fills up
 - **Database**: SQLite (challenges, mints, tree tracking)
 - **Challenge expiry**: background task cleans up every 60s
@@ -202,7 +213,8 @@ src/
 │   ├── bubblegum.rs         # Bubblegum instruction builders
 │   ├── tree_manager.rs      # Merkle tree lifecycle
 │   ├── solana.rs            # RPC helpers
-│   └── metadata.rs          # NFT name/URI generation
+│   ├── metadata.rs          # NFT metadata JSON builder
+│   └── irys.rs              # Arweave uploads via Irys (ANS-104)
 ├── models/                  # Data types
 │   ├── challenge.rs
 │   ├── mint.rs
@@ -214,3 +226,66 @@ src/
 └── bin/
     └── test_endpoints.rs    # E2E test runner
 ```
+
+## Irys Setup
+
+Metadata for each minted cNFT is uploaded to **Arweave** via [Irys](https://irys.xyz) (formerly Bundlr). Irys bundles your data into Arweave transactions for fast, cheap, permanent storage.
+
+### How it works
+
+1. At mint time, the server builds a Metaplex-standard JSON (name, image, attributes)
+2. Signs it as an ANS-104 data item with the server keypair
+3. Uploads to Irys, which returns a permanent Arweave URL
+4. That URL becomes the cNFT's on-chain `uri`
+
+### Fund your Irys account
+
+Irys requires a prepaid balance. Each metadata upload costs ~10,612 lamports (~$0.000002).
+
+**Devnet:**
+```bash
+# Send devnet SOL to the Irys node
+solana transfer 4a7s9iC5NwfUtf8fXpKWxYXcekfqiN6mRqipYXMtcrUS 0.01 \
+  --url https://api.devnet.solana.com --keypair <your-keypair-file>
+```
+
+**Check balance:**
+```bash
+curl "https://devnet.irys.xyz/account/balance/solana?address=<YOUR_PUBKEY>"
+```
+
+0.01 SOL is enough for ~900 mints.
+
+## Mainnet Migration
+
+To move from devnet to mainnet, update your `.env`:
+
+```bash
+# 1. Update these variables
+SOLANA_RPC_URL=https://mainnet.helius-rpc.com/?api-key=YOUR_KEY
+PAYER_KEYPAIR=<new mainnet keypair with real SOL>
+IRYS_NODE_URL=https://node1.irys.xyz
+
+# 2. Remove old devnet data
+rm -rf data/cnft_mint.db
+
+# 3. Create a new collection on mainnet
+cargo run -- setup
+# Copy the printed COLLECTION_MINT into .env
+
+# 4. Fund your Irys mainnet account
+solana transfer <irys-mainnet-solana-address> 0.05 \
+  --url https://api.mainnet-beta.solana.com --keypair <your-keypair-file>
+
+# 5. Start the server
+cargo run -- serve
+```
+
+### Cost breakdown (mainnet)
+
+| Item | Cost | Notes |
+|------|------|-------|
+| Merkle tree creation | ~0.68 SOL | One-time per 16,384 mints |
+| Mint transaction fee | ~0.000005 SOL | Per mint |
+| Irys metadata upload | ~0.00001 SOL | Per mint (permanent Arweave storage) |
+| **Total per mint** | **~0.000015 SOL** | After tree is created |
