@@ -1,5 +1,6 @@
 use std::sync::Arc;
 use axum::{Router, routing::{get, post}};
+use tower_http::services::ServeDir;
 use crate::state::AppState;
 
 pub mod health;
@@ -16,5 +17,7 @@ pub fn create_router(state: Arc<AppState>) -> Router {
         .route("/skill.md", get(|| async {
             tokio::fs::read_to_string("skill.md").await.unwrap_or_default()
         }))
+        // Serve metadata JSON files at /metadata/{index}.json
+        .nest_service("/metadata", ServeDir::new("metadata"))
         .with_state(state)
 }
