@@ -17,9 +17,9 @@ pub struct TreeInfo {
 pub struct TreeRow {
     pub id: i64,
     pub address: String,
-    pub max_depth: i64,
-    pub max_buffer_size: i64,
-    pub canopy_depth: i64,
+    pub max_depth: i32,
+    pub max_buffer_size: i32,
+    pub canopy_depth: i32,
     pub max_capacity: i64,
     pub current_leaf_index: i64,
     pub is_active: bool,

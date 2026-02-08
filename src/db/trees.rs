@@ -2,7 +2,7 @@ use sqlx::PgPool;
 use crate::models::tree::TreeRow;
 
 pub async fn get_active_tree(pool: &PgPool) -> Result<Option<TreeRow>, sqlx::Error> {
-    let row = sqlx::query_as::<_, (i64, String, i64, i64, i64, i64, i64, bool)>(
+    let row = sqlx::query_as::<_, (i64, String, i32, i32, i32, i64, i64, bool)>(
         "SELECT id, address, max_depth, max_buffer_size, canopy_depth, max_capacity, current_leaf_index, is_active
          FROM merkle_trees WHERE is_active = TRUE LIMIT 1"
     )
@@ -38,9 +38,9 @@ pub async fn insert_tree(
          VALUES ($1, $2, $3, $4, $5, $6, $7)"
     )
     .bind(address)
-    .bind(max_depth as i64)
-    .bind(max_buffer_size as i64)
-    .bind(canopy_depth as i64)
+    .bind(max_depth as i32)
+    .bind(max_buffer_size as i32)
+    .bind(canopy_depth as i32)
     .bind(max_capacity as i64)
     .bind(collection_mint)
     .bind(creation_tx)
