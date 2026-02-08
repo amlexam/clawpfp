@@ -27,8 +27,16 @@ async fn main() -> anyhow::Result<()> {
 
     let config = config::Config::from_env()?;
 
-    // Load server keypair
-    let key_bytes: Vec<u8> = serde_json::from_str(&config.payer_keypair_json)?;
+    // Load server keypair (supports JSON array [1,2,3,...] or base64 string)
+    let key_bytes: Vec<u8> = {
+        let raw = config.payer_keypair_json.trim();
+        if raw.starts_with('[') {
+            serde_json::from_str(raw)?
+        } else {
+            base64::Engine::decode(&base64::engine::general_purpose::STANDARD, raw)
+                .map_err(|e| anyhow::anyhow!("Invalid base64 keypair: {}", e))?
+        }
+    };
     let payer = Arc::new(
         solana_sdk::signer::keypair::Keypair::from_bytes(&key_bytes)
             .map_err(|e| anyhow::anyhow!("Invalid payer keypair: {}", e))?,
