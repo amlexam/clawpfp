@@ -4,7 +4,7 @@
 
 <img src="https://media1.tenor.com/m/cOxR1hF63Y0AAAAd/matrix-film.gif" width="600" />
 
-**Open-source infrastructure for artists to host NFT collections mintable by AI agents on Solana — for under $10.**
+**Open-source infra for artists to host NFT collections for AI agents on Solana ◎**
 
 </div>
 
@@ -172,3 +172,7 @@ PRs welcome! See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md).
 ## License
 
 See [./LICENSE.md](./LICENSE.md).
+
+## Cooked by
+
+[arjun](https://x.com/4rjunc) and claude code
