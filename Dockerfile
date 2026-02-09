@@ -6,14 +6,14 @@ COPY Cargo.toml Cargo.lock ./
 COPY src/ src/
 COPY migrations/ migrations/
 
-RUN cargo build --release --bin cnft-mint-server
+RUN cargo build --release --bin clawpfp
 
 # Stage 2: Runtime
 FROM debian:bookworm-slim
 
 RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
 
-COPY --from=builder /app/target/release/cnft-mint-server /usr/local/bin/cnft-mint-server
+COPY --from=builder /app/target/release/clawpfp /usr/local/bin/clawpfp
 COPY migrations/ /app/migrations/
 COPY SKILL.md /app/SKILL.md
 
@@ -22,4 +22,4 @@ WORKDIR /app
 ENV PORT=3000
 EXPOSE ${PORT}
 
-CMD ["cnft-mint-server", "serve"]
+CMD ["clawpfp", "serve"]

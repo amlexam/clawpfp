@@ -1,8 +1,8 @@
 [package]
-name = "cnft-mint-server"
+name = "clawpfp"
 version = "0.1.0"
 edition = "2021"
-default-run = "cnft-mint-server"
+default-run = "clawpfp"
 
 [dependencies]
 # ─── Solana / Metaplex ───

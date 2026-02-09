@@ -21,7 +21,7 @@ async fn main() -> anyhow::Result<()> {
     tracing_subscriber::fmt()
         .with_env_filter(
             tracing_subscriber::EnvFilter::from_default_env()
-                .add_directive("cnft_mint_server=info".parse().unwrap()),
+                .add_directive("clawpfp=info".parse().unwrap()),
         )
         .init();
 
@@ -75,7 +75,7 @@ async fn main() -> anyhow::Result<()> {
         }
         Some(other) => {
             eprintln!("Unknown subcommand: {}", other);
-            eprintln!("Usage: cnft-mint-server [setup|serve]");
+            eprintln!("Usage: clawpfp [setup|serve]");
             std::process::exit(1);
         }
     }

@@ -1,4 +1,4 @@
-//! End-to-end test runner for cnft-mint-server.
+//! End-to-end test runner for clawpfp.
 //! Start the server first (`cargo run -- serve`), then run:
 //!     cargo run --bin test_endpoints
 
@@ -169,7 +169,7 @@ async fn main() -> anyhow::Result<()> {
     let total_start = Instant::now();
     let base = base_url();
 
-    println!("\n  cnft-mint-server End-to-End Test");
+    println!("\n  clawpfp End-to-End Test");
     println!("  Server: {}", base);
     println!("  Wallet: {}", TEST_WALLET);
 

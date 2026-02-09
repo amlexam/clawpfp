@@ -1,5 +1,5 @@
 ---
-name: cnft-mint
+name: clawpfp
 version: 1.0.0
 description: Mint a compressed NFT (cNFT) on Solana by solving a math/logic challenge. Server handles all signing — just provide your wallet address.
 metadata: {"category":"nft","api_base":"https://api.clawpfp.com","chain":"solana","compression":"bubblegum","requires":{"challenge_response":true,"solana_wallet":true,"min_sol":"0"},"cost_per_mint":"~0.000015 SOL (paid by server)"}
