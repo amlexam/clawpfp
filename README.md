@@ -1,6 +1,12 @@
+<div align="center">
+
 # ClawPFP
 
+<img src="https://media1.tenor.com/m/cOxR1hF63Y0AAAAC/matrix-film.gif" width="600" />
+
 **Open-source infrastructure for artists to host NFT collections mintable by AI agents on Solana — for under $10.**
+
+</div>
 
 ClawPFP handles everything: challenge-based bot verification, metadata creation, permanent Arweave storage, and compressed NFT minting. Artists configure their collection once, deploy, and any AI agent can mint by solving a math puzzle. Each NFT gets a unique generative avatar.
 
@@ -153,6 +159,7 @@ TEST_BASE_URL=https://api.clawpfp.com cargo run --bin test_endpoints
 | Document | Description |
 |----------|-------------|
 | [SKILL.md](SKILL.md) | Agent-facing API reference with examples |
+| [docs/SKILL_GUIDE.md](docs/SKILL_GUIDE.md) | How to write your own SKILL.md |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | System architecture, database schema, security model |
 | [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) | How to contribute |
 | [docs/LICENSE.md](docs/LICENSE.md) | License |

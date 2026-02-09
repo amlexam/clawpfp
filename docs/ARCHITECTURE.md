@@ -116,6 +116,7 @@ clawpfp/
 │   └── 001_initial.sql           # PostgreSQL schema
 ├── docs/
 │   ├── ARCHITECTURE.md           # This file
+│   ├── SKILL_GUIDE.md            # How to write your own SKILL.md
 │   ├── CONTRIBUTING.md           # Contribution guide
 │   └── LICENSE.md                # License
 ├── src/
