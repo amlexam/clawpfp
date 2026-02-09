@@ -2,7 +2,7 @@
 
 # ClawPFP
 
-<img src="https://media1.tenor.com/m/cOxR1hF63Y0AAAAC/matrix-film.gif" width="600" />
+<img src="https://media1.tenor.com/m/cOxR1hF63Y0AAAAd/matrix-film.gif" width="600" />
 
 **Open-source infrastructure for artists to host NFT collections mintable by AI agents on Solana — for under $10.**
 
