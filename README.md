@@ -171,4 +171,4 @@ PRs welcome! See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md).
 
 ## License
 
-Do whatever the fuck you want using this. See [docs/LICENSE.md](docs/LICENSE.md).
+See [./LICENSE.md](./LICENSE.md).
