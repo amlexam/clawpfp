@@ -1,0 +1,758 @@
+{
+  "crate::ChallengeResponse": {
+    "file": "src/bin/test_endpoints.rs",
+    "line_start": 28,
+    "line_end": 34,
+    "kind": "struct",
+    "visibility": "private"
+  },
+  "crate::ErrorResponse": {
+    "file": "src/bin/test_endpoints.rs",
+    "line_start": 63,
+    "line_end": 67,
+    "kind": "struct",
+    "visibility": "private"
+  },
+  "crate::HealthResponse": {
+    "file": "src/bin/test_endpoints.rs",
+    "line_start": 19,
+    "line_end": 25,
+    "kind": "struct",
+    "visibility": "private"
+  },
+  "crate::MintRequest": {
+    "file": "src/bin/test_endpoints.rs",
+    "line_start": 37,
+    "line_end": 41,
+    "kind": "struct",
+    "visibility": "private"
+  },
+  "crate::MintResponse": {
+    "file": "src/bin/test_endpoints.rs",
+    "line_start": 44,
+    "line_end": 51,
+    "kind": "struct",
+    "visibility": "private"
+  },
+  "crate::StatusResponse": {
+    "file": "src/bin/test_endpoints.rs",
+    "line_start": 54,
+    "line_end": 60,
+    "kind": "struct",
+    "visibility": "private"
+  },
+  "crate::TEST_WALLET": {
+    "file": "src/bin/test_endpoints.rs",
+    "line_start": 14,
+    "line_end": 14,
+    "kind": "const",
+    "visibility": "private"
+  },
+  "crate::apply_op": {
+    "file": "src/bin/test_endpoints.rs",
+    "line_start": 131,
+    "line_end": 138,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::base_url": {
+    "file": "src/bin/test_endpoints.rs",
+    "line_start": 9,
+    "line_end": 11,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::config::Config": {
+    "file": "src/config.rs",
+    "line_start": 5,
+    "line_end": 25,
+    "kind": "struct",
+    "visibility": "pub"
+  },
+  "crate::config::impl Config": {
+    "file": "src/config.rs",
+    "line_start": 27,
+    "line_end": 83,
+    "kind": "impl Config",
+    "visibility": "private"
+  },
+  "crate::db::challenges::expire_challenge": {
+    "file": "src/db/challenges.rs",
+    "line_start": 52,
+    "line_end": 58,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::db::challenges::get_challenge": {
+    "file": "src/db/challenges.rs",
+    "line_start": 22,
+    "line_end": 40,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::db::challenges::insert_challenge": {
+    "file": "src/db/challenges.rs",
+    "line_start": 4,
+    "line_end": 20,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::db::challenges::mark_challenge_consumed": {
+    "file": "src/db/challenges.rs",
+    "line_start": 42,
+    "line_end": 50,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::db::mints::get_mint_by_tx": {
+    "file": "src/db/mints.rs",
+    "line_start": 31,
+    "line_end": 44,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::db::mints::get_total_minted": {
+    "file": "src/db/mints.rs",
+    "line_start": 46,
+    "line_end": 51,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::db::mints::insert_mint": {
+    "file": "src/db/mints.rs",
+    "line_start": 3,
+    "line_end": 29,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::db::trees::deactivate_tree": {
+    "file": "src/db/trees.rs",
+    "line_start": 52,
+    "line_end": 58,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::db::trees::get_active_tree": {
+    "file": "src/db/trees.rs",
+    "line_start": 4,
+    "line_end": 24,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::db::trees::get_tree_capacity_remaining": {
+    "file": "src/db/trees.rs",
+    "line_start": 68,
+    "line_end": 76,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::db::trees::increment_tree_leaf_index": {
+    "file": "src/db/trees.rs",
+    "line_start": 60,
+    "line_end": 66,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::db::trees::insert_tree": {
+    "file": "src/db/trees.rs",
+    "line_start": 26,
+    "line_end": 50,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::error::AppError": {
+    "file": "src/error.rs",
+    "line_start": 7,
+    "line_end": 25,
+    "kind": "enum",
+    "visibility": "pub"
+  },
+  "crate::error::impl IntoResponse for AppError": {
+    "file": "src/error.rs",
+    "line_start": 27,
+    "line_end": 63,
+    "kind": "impl IntoResponse for AppError",
+    "visibility": "private"
+  },
+  "crate::eval_math": {
+    "file": "src/bin/test_endpoints.rs",
+    "line_start": 122,
+    "line_end": 129,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::main": {
+    "file": "src/bin/test_endpoints.rs",
+    "line_start": 165,
+    "line_end": 389,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::mod_pow": {
+    "file": "src/bin/test_endpoints.rs",
+    "line_start": 140,
+    "line_end": 154,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::models::challenge::Challenge": {
+    "file": "src/models/challenge.rs",
+    "line_start": 34,
+    "line_end": 43,
+    "kind": "struct",
+    "visibility": "pub"
+  },
+  "crate::models::challenge::ChallengeResponse": {
+    "file": "src/models/challenge.rs",
+    "line_start": 47,
+    "line_end": 53,
+    "kind": "struct",
+    "visibility": "pub"
+  },
+  "crate::models::challenge::ChallengeType": {
+    "file": "src/models/challenge.rs",
+    "line_start": 4,
+    "line_end": 9,
+    "kind": "enum",
+    "visibility": "pub"
+  },
+  "crate::models::challenge::impl ChallengeType": {
+    "file": "src/models/challenge.rs",
+    "line_start": 22,
+    "line_end": 31,
+    "kind": "impl ChallengeType",
+    "visibility": "private"
+  },
+  "crate::models::challenge::impl From < & Challenge > for ChallengeResponse": {
+    "file": "src/models/challenge.rs",
+    "line_start": 55,
+    "line_end": 65,
+    "kind": "impl From < & Challenge > for ChallengeResponse",
+    "visibility": "private"
+  },
+  "crate::models::challenge::impl std :: fmt :: Display for ChallengeType": {
+    "file": "src/models/challenge.rs",
+    "line_start": 11,
+    "line_end": 20,
+    "kind": "impl std :: fmt :: Display for ChallengeType",
+    "visibility": "private"
+  },
+  "crate::models::mint::MintRequest": {
+    "file": "src/models/mint.rs",
+    "line_start": 4,
+    "line_end": 8,
+    "kind": "struct",
+    "visibility": "pub"
+  },
+  "crate::models::mint::MintResponse": {
+    "file": "src/models/mint.rs",
+    "line_start": 11,
+    "line_end": 17,
+    "kind": "struct",
+    "visibility": "pub"
+  },
+  "crate::models::mint::StatusResponse": {
+    "file": "src/models/mint.rs",
+    "line_start": 20,
+    "line_end": 26,
+    "kind": "struct",
+    "visibility": "pub"
+  },
+  "crate::models::tree::TreeInfo": {
+    "file": "src/models/tree.rs",
+    "line_start": 5,
+    "line_end": 13,
+    "kind": "struct",
+    "visibility": "pub"
+  },
+  "crate::models::tree::TreeRow": {
+    "file": "src/models/tree.rs",
+    "line_start": 17,
+    "line_end": 26,
+    "kind": "struct",
+    "visibility": "pub"
+  },
+  "crate::models::tree::impl TryFrom < TreeRow > for TreeInfo": {
+    "file": "src/models/tree.rs",
+    "line_start": 28,
+    "line_end": 42,
+    "kind": "impl TryFrom < TreeRow > for TreeInfo",
+    "visibility": "private"
+  },
+  "crate::print_step": {
+    "file": "src/bin/test_endpoints.rs",
+    "line_start": 158,
+    "line_end": 162,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::print_summary": {
+    "file": "src/bin/test_endpoints.rs",
+    "line_start": 391,
+    "line_end": 403,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::routes::challenge::challenge_handler": {
+    "file": "src/routes/challenge.rs",
+    "line_start": 10,
+    "line_end": 19,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::routes::create_router": {
+    "file": "src/routes/mod.rs",
+    "line_start": 24,
+    "line_end": 34,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::routes::health::health_handler": {
+    "file": "src/routes/health.rs",
+    "line_start": 8,
+    "line_end": 31,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::routes::mint::mint_handler": {
+    "file": "src/routes/mint.rs",
+    "line_start": 14,
+    "line_end": 122,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::routes::serve_skill_md": {
+    "file": "src/routes/mod.rs",
+    "line_start": 13,
+    "line_end": 22,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::routes::status::status_handler": {
+    "file": "src/routes/status.rs",
+    "line_start": 9,
+    "line_end": 27,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::services::bubblegum::BUBBLEGUM_PROGRAM_ID": {
+    "file": "src/services/bubblegum.rs",
+    "line_start": 9,
+    "line_end": 9,
+    "kind": "const",
+    "visibility": "pub"
+  },
+  "crate::services::bubblegum::SPL_ACCOUNT_COMPRESSION_ID": {
+    "file": "src/services/bubblegum.rs",
+    "line_start": 10,
+    "line_end": 10,
+    "kind": "const",
+    "visibility": "pub"
+  },
+  "crate::services::bubblegum::SPL_NOOP_ID": {
+    "file": "src/services/bubblegum.rs",
+    "line_start": 11,
+    "line_end": 11,
+    "kind": "const",
+    "visibility": "pub"
+  },
+  "crate::services::bubblegum::TOKEN_METADATA_PROGRAM_ID": {
+    "file": "src/services/bubblegum.rs",
+    "line_start": 12,
+    "line_end": 12,
+    "kind": "const",
+    "visibility": "pub"
+  },
+  "crate::services::bubblegum::bubblegum_program_id": {
+    "file": "src/services/bubblegum.rs",
+    "line_start": 14,
+    "line_end": 16,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::services::bubblegum::build_mint_to_collection_ix": {
+    "file": "src/services/bubblegum.rs",
+    "line_start": 30,
+    "line_end": 110,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::services::bubblegum::derive_asset_id": {
+    "file": "src/services/bubblegum.rs",
+    "line_start": 113,
+    "line_end": 119,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::services::bubblegum::get_merkle_tree_size": {
+    "file": "src/services/bubblegum.rs",
+    "line_start": 123,
+    "line_end": 150,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::services::bubblegum::spl_account_compression_id": {
+    "file": "src/services/bubblegum.rs",
+    "line_start": 18,
+    "line_end": 20,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::services::bubblegum::spl_noop_id": {
+    "file": "src/services/bubblegum.rs",
+    "line_start": 22,
+    "line_end": 24,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::services::bubblegum::token_metadata_program_id": {
+    "file": "src/services/bubblegum.rs",
+    "line_start": 26,
+    "line_end": 28,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::services::challenge::apply_op": {
+    "file": "src/services/challenge.rs",
+    "line_start": 74,
+    "line_end": 81,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::services::challenge::eval_expression": {
+    "file": "src/services/challenge.rs",
+    "line_start": 56,
+    "line_end": 72,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::services::challenge::generate_arithmetic": {
+    "file": "src/services/challenge.rs",
+    "line_start": 35,
+    "line_end": 54,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::services::challenge::generate_challenge": {
+    "file": "src/services/challenge.rs",
+    "line_start": 5,
+    "line_end": 29,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::services::challenge::generate_logic_sequence": {
+    "file": "src/services/challenge.rs",
+    "line_start": 110,
+    "line_end": 122,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::services::challenge::generate_modular_math": {
+    "file": "src/services/challenge.rs",
+    "line_start": 83,
+    "line_end": 92,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::services::challenge::generate_word_math": {
+    "file": "src/services/challenge.rs",
+    "line_start": 124,
+    "line_end": 138,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::services::challenge::mod_pow": {
+    "file": "src/services/challenge.rs",
+    "line_start": 94,
+    "line_end": 108,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::services::challenge::verify_challenge_answer": {
+    "file": "src/services/challenge.rs",
+    "line_start": 31,
+    "line_end": 33,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::services::irys::avro_long": {
+    "file": "src/services/irys.rs",
+    "line_start": 49,
+    "line_end": 51,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::services::irys::avro_varint": {
+    "file": "src/services/irys.rs",
+    "line_start": 35,
+    "line_end": 46,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::services::irys::avro_zigzag": {
+    "file": "src/services/irys.rs",
+    "line_start": 30,
+    "line_end": 32,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::services::irys::create_signed_data_item": {
+    "file": "src/services/irys.rs",
+    "line_start": 78,
+    "line_end": 117,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::services::irys::deep_hash_blob": {
+    "file": "src/services/irys.rs",
+    "line_start": 8,
+    "line_end": 14,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::services::irys::deep_hash_list": {
+    "file": "src/services/irys.rs",
+    "line_start": 16,
+    "line_end": 25,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::services::irys::serialize_tags": {
+    "file": "src/services/irys.rs",
+    "line_start": 55,
+    "line_end": 74,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::services::irys::upload": {
+    "file": "src/services/irys.rs",
+    "line_start": 125,
+    "line_end": 168,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::services::metadata::build_metadata_json": {
+    "file": "src/services/metadata.rs",
+    "line_start": 12,
+    "line_end": 41,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::services::metadata::generate_name": {
+    "file": "src/services/metadata.rs",
+    "line_start": 5,
+    "line_end": 7,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::services::solana::get_transaction_status": {
+    "file": "src/services/solana.rs",
+    "line_start": 6,
+    "line_end": 22,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::services::tree_manager::TreeManager": {
+    "file": "src/services/tree_manager.rs",
+    "line_start": 15,
+    "line_end": 20,
+    "kind": "struct",
+    "visibility": "pub"
+  },
+  "crate::services::tree_manager::impl TreeManager": {
+    "file": "src/services/tree_manager.rs",
+    "line_start": 22,
+    "line_end": 155,
+    "kind": "impl TreeManager",
+    "visibility": "private"
+  },
+  "crate::setup::ASSOCIATED_TOKEN_PROGRAM_ID": {
+    "file": "src/setup.rs",
+    "line_start": 16,
+    "line_end": 16,
+    "kind": "const",
+    "visibility": "private"
+  },
+  "crate::setup::CollectionData": {
+    "file": "src/setup.rs",
+    "line_start": 154,
+    "line_end": 157,
+    "kind": "struct",
+    "visibility": "private"
+  },
+  "crate::setup::CollectionDetails": {
+    "file": "src/setup.rs",
+    "line_start": 168,
+    "line_end": 170,
+    "kind": "enum",
+    "visibility": "private"
+  },
+  "crate::setup::CreateMasterEditionArgs": {
+    "file": "src/setup.rs",
+    "line_start": 173,
+    "line_end": 175,
+    "kind": "struct",
+    "visibility": "private"
+  },
+  "crate::setup::CreateMetadataAccountArgsV3": {
+    "file": "src/setup.rs",
+    "line_start": 128,
+    "line_end": 132,
+    "kind": "struct",
+    "visibility": "private"
+  },
+  "crate::setup::CreatorData": {
+    "file": "src/setup.rs",
+    "line_start": 146,
+    "line_end": 150,
+    "kind": "struct",
+    "visibility": "private"
+  },
+  "crate::setup::DataV2": {
+    "file": "src/setup.rs",
+    "line_start": 135,
+    "line_end": 143,
+    "kind": "struct",
+    "visibility": "private"
+  },
+  "crate::setup::RENT_SYSVAR_ID": {
+    "file": "src/setup.rs",
+    "line_start": 18,
+    "line_end": 18,
+    "kind": "const",
+    "visibility": "private"
+  },
+  "crate::setup::SPL_TOKEN_MINT_SIZE": {
+    "file": "src/setup.rs",
+    "line_start": 20,
+    "line_end": 20,
+    "kind": "const",
+    "visibility": "private"
+  },
+  "crate::setup::TOKEN_METADATA_PROGRAM_ID": {
+    "file": "src/setup.rs",
+    "line_start": 17,
+    "line_end": 17,
+    "kind": "const",
+    "visibility": "private"
+  },
+  "crate::setup::TOKEN_PROGRAM_ID": {
+    "file": "src/setup.rs",
+    "line_start": 15,
+    "line_end": 15,
+    "kind": "const",
+    "visibility": "private"
+  },
+  "crate::setup::UsesData": {
+    "file": "src/setup.rs",
+    "line_start": 161,
+    "line_end": 165,
+    "kind": "struct",
+    "visibility": "private"
+  },
+  "crate::setup::associated_token_program_id": {
+    "file": "src/setup.rs",
+    "line_start": 26,
+    "line_end": 28,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::setup::create_ata_idempotent_ix": {
+    "file": "src/setup.rs",
+    "line_start": 104,
+    "line_end": 123,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::setup::create_master_edition_v3_ix": {
+    "file": "src/setup.rs",
+    "line_start": 224,
+    "line_end": 254,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::setup::create_metadata_account_v3_ix": {
+    "file": "src/setup.rs",
+    "line_start": 197,
+    "line_end": 222,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::setup::derive_ata": {
+    "file": "src/setup.rs",
+    "line_start": 92,
+    "line_end": 102,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::setup::derive_master_edition_pda": {
+    "file": "src/setup.rs",
+    "line_start": 188,
+    "line_end": 195,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::setup::derive_metadata_pda": {
+    "file": "src/setup.rs",
+    "line_start": 179,
+    "line_end": 186,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::setup::initialize_mint2_ix": {
+    "file": "src/setup.rs",
+    "line_start": 40,
+    "line_end": 67,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::setup::mint_to_ix": {
+    "file": "src/setup.rs",
+    "line_start": 69,
+    "line_end": 88,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::setup::rent_sysvar_id": {
+    "file": "src/setup.rs",
+    "line_start": 34,
+    "line_end": 36,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::setup::setup_collection": {
+    "file": "src/setup.rs",
+    "line_start": 258,
+    "line_end": 341,
+    "kind": "function",
+    "visibility": "pub"
+  },
+  "crate::setup::token_metadata_program_id": {
+    "file": "src/setup.rs",
+    "line_start": 30,
+    "line_end": 32,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::setup::token_program_id": {
+    "file": "src/setup.rs",
+    "line_start": 22,
+    "line_end": 24,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::solve_challenge": {
+    "file": "src/bin/test_endpoints.rs",
+    "line_start": 71,
+    "line_end": 120,
+    "kind": "function",
+    "visibility": "private"
+  },
+  "crate::state::AppState": {
+    "file": "src/state.rs",
+    "line_start": 8,
+    "line_end": 15,
+    "kind": "struct",
+    "visibility": "pub"
+  }
+}

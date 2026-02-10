@@ -1,0 +1,242 @@
+{
+  "files": {
+    "src/bin/test_endpoints.rs": {
+      "hash": "635c1a012a56a467016fbe2fe1ab4988f1c574b7236e86f2d70a567fb03b76ea",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/config.rs": {
+      "hash": "1e5ca0992701b8f41ffb2b9e0a11b36529ea146faac294b2be8eb3e440ec44b3",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/db/challenges.rs": {
+      "hash": "4be33e2f487f374febfd5da6fd50ac4f80fc0dad889177c9639dab9d6df76702",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/db/mints.rs": {
+      "hash": "d169d13c156081eec99a589b21f7b082c5d4416bfc62757518a9a8ef38c80bbb",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/db/mod.rs": {
+      "hash": "4ceef86cb34bdbc7fcd76aca30e3fd397e6d58ae4d47a2950418e3c82a115c05",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/db/trees.rs": {
+      "hash": "1afcd932c45eaf989ae0e3558bc9eeeb69912e88a0c5005d60c711cd6aca4f6a",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/error.rs": {
+      "hash": "5cdd2eef138c6a8adcace5d2e71f46e35d1435692ced4246aca280edbec0ac2c",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/main.rs": {
+      "hash": "ef06338a9f5b287ffca1897705ca862af657aa6aef173678966758f45485b028",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/models/challenge.rs": {
+      "hash": "54c8194cea2c70a269966449adbcaad248690c80071422159e0b3c97823862c9",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/models/mint.rs": {
+      "hash": "1584448a952362681cab79b62afefaee6ce441042f58a6c44b1f06a8ce24ed5c",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/models/mod.rs": {
+      "hash": "66dfc519e0e40626976c7a5afc9e8efa8e6a928f32d722dafd12cfa51c1e7079",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/models/tree.rs": {
+      "hash": "356a150950db8659887b3d9b0b4d2fcbe40d9d116c72bb88176cf56409eb71d1",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/routes/challenge.rs": {
+      "hash": "9eec931620dc6868e3ecb985bab363e268736ede729f7bf6e71cc2f96a5aee45",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/routes/health.rs": {
+      "hash": "53d077dddd99d4e206ece1019ffb60308997a7dccca924e63a50f32ca00bd7dd",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/routes/mint.rs": {
+      "hash": "87855c505d11633a33670b94baa1bd5bca9938de4d31e74ae66684fb6bd54f9d",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/routes/mod.rs": {
+      "hash": "a5031178d538d1df141d92c6ee0f9d19a401fb6895664da40780e9637042f650",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/routes/status.rs": {
+      "hash": "1ebfeb133253fc3be78211932325ba7fac792f5a00ee20560ef280ff37602d13",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/services/bubblegum.rs": {
+      "hash": "2b1ccc4f6c6195b23d868f1521099c010731872e69b5d6d0fa424947a5efd07f",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/services/challenge.rs": {
+      "hash": "7d082e9a7fde3463c214295326e6722d0a36bb7a189f57d7dca8fa4aae092f08",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/services/irys.rs": {
+      "hash": "7a7ccde90df52e1cef0736b74559df59dc016d8fa761e541181080a0cbaeadda",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/services/metadata.rs": {
+      "hash": "9a5cbe167ea273130d68b68d4b4629626c915858f1324829a9b3bd4d086380ab",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/services/mod.rs": {
+      "hash": "9d41cc5b790b6907a2e338823f4fa3873f77ce27565439b10a00d795245b6335",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/services/solana.rs": {
+      "hash": "56eba36e098cfe9477730e25026f644085f9a1199b5783cfeb67be3fd48c25fb",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/services/tree_manager.rs": {
+      "hash": "b8089d40197974d49a69566672972e08d06bb17f6c84ad93a35cf18752f8442b",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/setup.rs": {
+      "hash": "75f0c52a5abead938daf5bb3ee3ef8ee896259d4e848fe4ec5660626fecc9330",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    },
+    "src/state.rs": {
+      "hash": "024783732dba51bf9dfadf96f28a201bc4b342bd02dd11171e1580ec137f049d",
+      "last_indexed": "2026-02-10T04:27:49.994209+00:00"
+    }
+  },
+  "modules": {
+    "crate": "635c1a012a56a467016fbe2fe1ab4988f1c574b7236e86f2d70a567fb03b76ea",
+    "crate::config": "1e5ca0992701b8f41ffb2b9e0a11b36529ea146faac294b2be8eb3e440ec44b3",
+    "crate::db": "4ceef86cb34bdbc7fcd76aca30e3fd397e6d58ae4d47a2950418e3c82a115c05",
+    "crate::db::challenges": "4be33e2f487f374febfd5da6fd50ac4f80fc0dad889177c9639dab9d6df76702",
+    "crate::db::mints": "d169d13c156081eec99a589b21f7b082c5d4416bfc62757518a9a8ef38c80bbb",
+    "crate::db::trees": "1afcd932c45eaf989ae0e3558bc9eeeb69912e88a0c5005d60c711cd6aca4f6a",
+    "crate::error": "5cdd2eef138c6a8adcace5d2e71f46e35d1435692ced4246aca280edbec0ac2c",
+    "crate::models": "66dfc519e0e40626976c7a5afc9e8efa8e6a928f32d722dafd12cfa51c1e7079",
+    "crate::models::challenge": "54c8194cea2c70a269966449adbcaad248690c80071422159e0b3c97823862c9",
+    "crate::models::mint": "1584448a952362681cab79b62afefaee6ce441042f58a6c44b1f06a8ce24ed5c",
+    "crate::models::tree": "356a150950db8659887b3d9b0b4d2fcbe40d9d116c72bb88176cf56409eb71d1",
+    "crate::routes": "a5031178d538d1df141d92c6ee0f9d19a401fb6895664da40780e9637042f650",
+    "crate::routes::challenge": "9eec931620dc6868e3ecb985bab363e268736ede729f7bf6e71cc2f96a5aee45",
+    "crate::routes::health": "53d077dddd99d4e206ece1019ffb60308997a7dccca924e63a50f32ca00bd7dd",
+    "crate::routes::mint": "87855c505d11633a33670b94baa1bd5bca9938de4d31e74ae66684fb6bd54f9d",
+    "crate::routes::status": "1ebfeb133253fc3be78211932325ba7fac792f5a00ee20560ef280ff37602d13",
+    "crate::services": "9d41cc5b790b6907a2e338823f4fa3873f77ce27565439b10a00d795245b6335",
+    "crate::services::bubblegum": "2b1ccc4f6c6195b23d868f1521099c010731872e69b5d6d0fa424947a5efd07f",
+    "crate::services::challenge": "7d082e9a7fde3463c214295326e6722d0a36bb7a189f57d7dca8fa4aae092f08",
+    "crate::services::irys": "7a7ccde90df52e1cef0736b74559df59dc016d8fa761e541181080a0cbaeadda",
+    "crate::services::metadata": "9a5cbe167ea273130d68b68d4b4629626c915858f1324829a9b3bd4d086380ab",
+    "crate::services::solana": "56eba36e098cfe9477730e25026f644085f9a1199b5783cfeb67be3fd48c25fb",
+    "crate::services::tree_manager": "b8089d40197974d49a69566672972e08d06bb17f6c84ad93a35cf18752f8442b",
+    "crate::setup": "75f0c52a5abead938daf5bb3ee3ef8ee896259d4e848fe4ec5660626fecc9330",
+    "crate::state": "024783732dba51bf9dfadf96f28a201bc4b342bd02dd11171e1580ec137f049d"
+  },
+  "items": {
+    "crate::ChallengeResponse": "ac000aec715c0814d3b8560e4dee990bfb757dd406c636717fa87cff8c3e431d",
+    "crate::ErrorResponse": "6fc3346422e7c5a5e49c73bbdf9ad76f6545a952342dbc4be055de1dc5639458",
+    "crate::HealthResponse": "e582d1f683a3dabe4f13f69196ce1082056a5678d47e6e156f5140b733dad503",
+    "crate::MintRequest": "88316af1925973e3ea6caacb8a8f86da568e7bcaf10153e83cbcda5e6fe38835",
+    "crate::MintResponse": "099a02d4a3f309a5ade4b9ef8269c4985d819377814a544c4089d1fe8533c1ba",
+    "crate::StatusResponse": "b508d477e5e65aa2a51e605e0f27e139819d483228050cf971bf7d7fc179a141",
+    "crate::TEST_WALLET": "ce04d1224dae2c272f58ee59fc4b226bdb38a3fb75ed58f84602fea6bc5891af",
+    "crate::apply_op": "c7e9aa861ca4e9edd1942b179f124b98ec51ac32bdf71bddd64d334eb315f2b5",
+    "crate::base_url": "2548422424b1f57456e5980ef1f3b3cea49509cc4628e05d874c9b779011e043",
+    "crate::config::Config": "1fe1581121feb7a13e6e19566ad3ecf37d0fd8e510acb1b61176a06f2969621c",
+    "crate::db::challenges::expire_challenge": "ee2977978afe5d972037cb048d0a0ea030591f9a2116ae6a4b3574d038f437fe",
+    "crate::db::challenges::get_challenge": "90ae87644bccb9726430c546d0096640986aa9565f743437ed4144b5d1de3f67",
+    "crate::db::challenges::insert_challenge": "65c59f44973f9029651a2db85bacdfc6e057dade88660e3e0b3a4f04f8e3c6cf",
+    "crate::db::challenges::mark_challenge_consumed": "902d22a1d99d4b249bbd5e24acb0df158b7473c1f82dece0b0ebf1fdf1c6914a",
+    "crate::db::mints::get_mint_by_tx": "33d64f3d1d2f23e0580622ba8495695f84d65c7325cbd237f7ad118797be80e9",
+    "crate::db::mints::get_total_minted": "e7a137e95925f65606520961d6cc9e0c5cb919496ee1d3879004ebf2062fbefe",
+    "crate::db::mints::insert_mint": "f3b953da65ea57540af561252b614e6b69a38b4082513e6fe1414da66bf42bff",
+    "crate::db::trees::deactivate_tree": "d2a28fd255f6f0164b2af9e4ed31410893a7058afee1747b3976016c5e6bd12c",
+    "crate::db::trees::get_active_tree": "e3293190010978353a1580704b45ed1b4797dccd0b4dc8a8483cfb11d1d5063e",
+    "crate::db::trees::get_tree_capacity_remaining": "fb3b03cae24dd4025ce7df2223dfd3b1c617f7881074f6af1a9bae129351ae92",
+    "crate::db::trees::increment_tree_leaf_index": "77fa84d9bb34876a6c84ae9431b58c84b9dfde0ad502c0ac186bec52832198b3",
+    "crate::db::trees::insert_tree": "b01feb3d944cadc03c0becc3a8aab01a293e526910b61abd59fa7107230bd288",
+    "crate::error::AppError": "5b951a2654d7b9421aeae2019d3eff4a88bf578e7fa8709c685b933f59052288",
+    "crate::error::IntoResponse for AppError": "62aaa9275cd23b8c01639f4c96710e8dadb030af167756400bf946cb82cb5c81",
+    "crate::eval_math": "cd6dcacb807591d96eab58f68ebb6a82b76eae3e8e52a8ad2f6da5a8c2a1fa72",
+    "crate::main": "3dc31ca5dd47e7584b668b526f7c22f6f626f302412f4b126810f44834e89af8",
+    "crate::mod_pow": "8cb5430ce9e73c7e6843b14243bd87a61e0137ec944e03374bdfd866956e6f90",
+    "crate::models::challenge::Challenge": "c32725aa2be0e04774f811253685a7d83386b00f418bf2d54477a07c6569de9a",
+    "crate::models::challenge::ChallengeResponse": "ab568b88d2046e529d6e3a3e12007dcbcc29f50d424dffd4a0ae5053cf6af4a0",
+    "crate::models::challenge::ChallengeType": "298ca462e3df924679fdd4a18e20414a07ecf59c971d0f1b40bf2d743c2a0a83",
+    "crate::models::challenge::From < & Challenge > for ChallengeResponse": "a1ac9cdb2ad04fd4f7fa3b9c9b475f616a9da2d289ce3f047fb0ba6811a55c5f",
+    "crate::models::challenge::std :: fmt :: Display for ChallengeType": "b698a97286becdb2f6522300303f93c53eb9748922600bb181464fdaf624140f",
+    "crate::models::mint::MintRequest": "7fec90ae75874272410abfc3182e7243916cfd26e051e39a6834382b7335c91e",
+    "crate::models::mint::MintResponse": "8251ef1b0728cbb91a790f14a04d05071c5aaeb9e5efd71c1a79280db811c2a0",
+    "crate::models::mint::StatusResponse": "21ded3f22ca23d4b9f6b44c2b49d92bfe662a98613e38f43fab80431e4a2281c",
+    "crate::models::tree::TreeInfo": "01cb9d4180d27b54edc87790bd1a49c088822b1b75dd4c852fb5984772cd7fbe",
+    "crate::models::tree::TreeRow": "add9411b630648beeeb558dbc996dc0403afb38e32b43568e51a455269632240",
+    "crate::models::tree::TryFrom < TreeRow > for TreeInfo": "60a441049b4de664e45691245017cc650102f8cd205b77edfd9d77225705da82",
+    "crate::print_step": "b49665e2a004efccf29170a45737434e2cd29b475cab62450fb5806d22253dd8",
+    "crate::print_summary": "07d006c9e6d882c99f715105f3bf94d1aac46e0d0b15891e00a8f274b4f391c3",
+    "crate::routes::challenge::challenge_handler": "69111c0d7ddd0dbe9cde5485e9f0d9c12d9ed84bb313a54f69fe8d6b70b22a27",
+    "crate::routes::create_router": "8418cfa3959b3ad516c4cd672236c534a0e6786e4ac52bfc553bcbc0d9323732",
+    "crate::routes::health::health_handler": "5d042b872f031f810456e3e37dac5ff32d6c0e16e3cc7274c292da79e535900b",
+    "crate::routes::mint::mint_handler": "3ef2ccc6be3aa92be8b49e95de33576a5e445ecd9a98c8849be5714daf6a78f4",
+    "crate::routes::serve_skill_md": "b7c4b0dc558cce289e40260deffa01d5df8a881c5f15cb7d56bd1491128e5945",
+    "crate::routes::status::status_handler": "48403bf3ac47b66ef4a1b668c44e3bdaab684569f38506c96249651a4dd24b81",
+    "crate::services::bubblegum::BUBBLEGUM_PROGRAM_ID": "066b9ba747eab6fed917385fd37c3bca09c65d2278ba4e0186577bf389ee0d8d",
+    "crate::services::bubblegum::SPL_ACCOUNT_COMPRESSION_ID": "ac9f41c195b9ff8b92db35740cb3d7b7f42ea9126ddee0497fa46b33d6db2be4",
+    "crate::services::bubblegum::SPL_NOOP_ID": "be73f90610fd91ce340efbf179c23abcbd8bf8c91321c55851092a0c88592f68",
+    "crate::services::bubblegum::TOKEN_METADATA_PROGRAM_ID": "774dce0edf4fc911f274b15dd224e4147a1c5d17cd09ee0b4972cee6fe653d21",
+    "crate::services::bubblegum::bubblegum_program_id": "360f71c6e06822fcc4fbca720f34a138fcf72710b9dbfbed9ebdcb1d70dfb887",
+    "crate::services::bubblegum::build_mint_to_collection_ix": "7ecfe0040bcbfa115ae563b43f99b13df0cd3c9620d25ee8f0b2ef51d8b9e71b",
+    "crate::services::bubblegum::derive_asset_id": "f959d9202a1b01665c7e6799fcd27387c7e4e806f1e267056b54380d859e30c8",
+    "crate::services::bubblegum::get_merkle_tree_size": "5cdd4b1eb081192eb27ff070013d8aebb728139f9670dacc192c45ed75d4bb83",
+    "crate::services::bubblegum::spl_account_compression_id": "29e0b9128dd2224f8f385dce3e3d5247300e61351b4f0e93289c9aae72154ed2",
+    "crate::services::bubblegum::spl_noop_id": "bf867ceb6acdc6b931c3168f27edbafaf8b3585c390e7c90acf682f3828aacf1",
+    "crate::services::bubblegum::token_metadata_program_id": "ef6eddf3fefdbddf38f91dd639c0f480326b2be746b0089b7de956fad6ee3b5d",
+    "crate::services::challenge::apply_op": "c7e9aa861ca4e9edd1942b179f124b98ec51ac32bdf71bddd64d334eb315f2b5",
+    "crate::services::challenge::eval_expression": "5b26b25ae8bbdca75c9e219d175d98c29544a9a489511789c65dbb324906a132",
+    "crate::services::challenge::generate_arithmetic": "16c1e8b650cbf95483833394d56da3acacd02f684571fc5f8e6f764ad825207d",
+    "crate::services::challenge::generate_challenge": "8887604728d8e0e16ef695ec23c9013c16c3ee28f7d0077b3e7007c80a59a4d0",
+    "crate::services::challenge::generate_logic_sequence": "9994bc7e002e0d530fe1076b20ccc3c1293eb84c97acb88d4551aec56419a569",
+    "crate::services::challenge::generate_modular_math": "64eea3497051bcd81dcac3b909271a03724a089df7d483df1543d845c25dd3ee",
+    "crate::services::challenge::generate_word_math": "b8baee22e84453750662565fb4be6c25490d173343529d0abf4bc0a2e31eb4ae",
+    "crate::services::challenge::mod_pow": "8cb5430ce9e73c7e6843b14243bd87a61e0137ec944e03374bdfd866956e6f90",
+    "crate::services::challenge::verify_challenge_answer": "9314694282c1de765f14b526c774880a4eb5616e141a7d16a25eb189bdbb1fe4",
+    "crate::services::irys::avro_long": "b20523035f87c4100661d6290262a831f22dc576a070f11ac307714677093a3d",
+    "crate::services::irys::avro_varint": "2bbbc96f9067cc9027a65d909127009b5c2b07a757996615a196b53d2f34549e",
+    "crate::services::irys::avro_zigzag": "303a520bb1e246cb03399617253ceadfd19d74da1e614db2411d9159a561a1fd",
+    "crate::services::irys::create_signed_data_item": "5b9c7bf0674dc9ca3c2218d5486282ce12c882d6ac27007cd90e9914460232dc",
+    "crate::services::irys::deep_hash_blob": "9e6e86c2486ee25f18988c50188728607e2eb613153efcfd5db6e2b546b4f4e7",
+    "crate::services::irys::deep_hash_list": "29f9bce221cc1c95943ad790543c67ea8ebdaef148811bca1ccfee6723cd34a4",
+    "crate::services::irys::serialize_tags": "7f757389a17a6a7e7f7a2652fc7c440d6ad45cc8e09cb289306674c85fb4c700",
+    "crate::services::irys::upload": "09d91b3d17f27520dd858cb3a076d7cc217a5dbd931f320a8d9749cb11ae180d",
+    "crate::services::metadata::build_metadata_json": "9dfac64ceee229a3b54f90e09aef371314899e37e0f3f910408417106d5ba06b",
+    "crate::services::metadata::generate_name": "3ce99b165e35280edb32a273a2f5472c8a1609f41648c90489cc061a75ff55ce",
+    "crate::services::solana::get_transaction_status": "399f9df176c75d8e9f0929661f0e1046acbf4a1c040f8c5f36ff8d875cbf984b",
+    "crate::services::tree_manager::TreeManager": "370c0e6cfb59aa938e07e84cd18a1f9dc4f58f43f6a2023ea03c55ab4978ef59",
+    "crate::setup::ASSOCIATED_TOKEN_PROGRAM_ID": "a38e543990e2d209f6d38db7622241e0041357f72767f6580c093739cc0eccd7",
+    "crate::setup::CollectionData": "218d58ae9f631de68f9ce976aa1306a372c4305ac2859968079fffe04e3ad356",
+    "crate::setup::CollectionDetails": "4938a535e4c21f58d6171a93c29de93ee2a3221ec7f883fb7d93f6311efc3045",
+    "crate::setup::CreateMasterEditionArgs": "48684be76fe196737f20cc14bb48894f4185b8ab53fdb4c102d1e7a4bde340e7",
+    "crate::setup::CreateMetadataAccountArgsV3": "b0809b49c445c2ae1e2ca990663940b820d5d48f8aefdb21f0285b792fd1b3e3",
+    "crate::setup::CreatorData": "6c7ceaec465fb2e319f1d70f13cf2aca497cd31b148f09890345a172330e97bc",
+    "crate::setup::DataV2": "6ace39b927ae8948425530fbe9167e1ab517300e2868f0a43ffc50d35ba2f0c5",
+    "crate::setup::RENT_SYSVAR_ID": "f5095f16d4b1c33b631da81ea538aef58fd85eed74b58cb38d89a9032f85bd87",
+    "crate::setup::SPL_TOKEN_MINT_SIZE": "d053e246a927fabda43a0a9a7d1f46a6904b492e21404d1bcc8d90cfd1e611de",
+    "crate::setup::TOKEN_METADATA_PROGRAM_ID": "e3f34e7af02bca1caf04c3ed780e6fc34940bd67147da03301189daf69730bd7",
+    "crate::setup::TOKEN_PROGRAM_ID": "c5d32fa3bc107fe6b4d47a1f3cd23562f75b6815694e014adf846c8e7d19a332",
+    "crate::setup::UsesData": "8e92b31acec0f1ab5a6b6a21656cc939031e1cbad9b5e27815078d9ad260980e",
+    "crate::setup::associated_token_program_id": "042ea84ae676f9acfb9eb19c5335cc6bf08eadb836526769c2a6f51c086591c4",
+    "crate::setup::create_ata_idempotent_ix": "831ed7fefe0b1c2550273a1342cd45daf39e1206e6794d6cde1e0679d7a0066d",
+    "crate::setup::create_master_edition_v3_ix": "6c4eaf62b636ecac315794f2e8bcf06bb4d3d7f944c935d3c6e74a5cc58df869",
+    "crate::setup::create_metadata_account_v3_ix": "331ca28cd4194bca0f8d780e5e0bc7bbcff8c6453d61613e3ec4ece9a4ad8811",
+    "crate::setup::derive_ata": "cee8c80d3282fad30c85f4b06aa85f4ebc795c2a91646548fb53b9e63b597789",
+    "crate::setup::derive_master_edition_pda": "d6b4d1f59a9e0c418cf27d9886e7184ff9ad9b337834f06049a0539b2e02d1f2",
+    "crate::setup::derive_metadata_pda": "3bfcd2e9eff72a67cd3e3765b25e4bc71fe8a40991f85b9dec5583cf154ad362",
+    "crate::setup::initialize_mint2_ix": "5e0538335bb239e6e1b829f6361e5daafb9d32159778a8a1461193b52c3a42ad",
+    "crate::setup::mint_to_ix": "920887c25938daa4e7dcf89d8ab4786b692777d95d9a156e9c91ad16430f344e",
+    "crate::setup::rent_sysvar_id": "db8a2d48df4c3bb1bf47f8c54b30c55b1bc1afd5ced71ffb0f3351d630fd614d",
+    "crate::setup::setup_collection": "188ee9577e5199efab196e70890860770fde62d27d0f5849fd3adcf2b567bb77",
+    "crate::setup::token_metadata_program_id": "6c91298a048fcbaabc17bcf98889af674dc15423a21bc9116b3082acad76eb16",
+    "crate::setup::token_program_id": "67314a2a7726cf86d57902fb29ac22dca222d1b18c53067c67216ccc5e14b6d5",
+    "crate::solve_challenge": "2886c4c433949c4e6a65adc137030842a35737c89362c88ecf8eb130e5d52ae7",
+    "crate::state::AppState": "084f319b107164936520382b178fe0da4b1e32019ceccde54728afa45f58481b"
+  }
+}
