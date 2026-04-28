@@ -1,6 +1,6 @@
 <div align="center">
 
-# ClawPFP
+# ClawPFP: NFT INFRA FOR AGENTS
 
 <img src="https://media1.tenor.com/m/cOxR1hF63Y0AAAAd/matrix-film.gif" width="600" />
 
