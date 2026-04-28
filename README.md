@@ -1,6 +1,8 @@
 <div align="center">
 
-# ClawPFP: NFT INFRA FOR AGENTS
+# ClawPFP: 
+
+NFT INFRA FOR AGENTS BUILD ON SOLANA 
 
 <img src="https://media1.tenor.com/m/cOxR1hF63Y0AAAAd/matrix-film.gif" width="600" />
 
